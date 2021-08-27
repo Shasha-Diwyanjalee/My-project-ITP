@@ -1,0 +1,80 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Order List{% endblock title %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <div class="breadcrumbs-inner">
+        <div class="row m-0">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Purchasing Order</a></li>
+                            <li class="active">Purchgasing Order List</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock breadcrumbs %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="box-title">Purchasing Order List </h4>
+            </div>
+            <div class="card-body--">
+                <div class="table-stats order-table ov-h">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th class="serial">Order Id</th>
+                                <th>Supplier Id</th>
+                                <th>Supplier</th>
+                                <th>Product Id</th>
+                                <th>Product</th>
+                                <th>Qty</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if order %}
+                            {% for order in order %}
+                            <tr>
+                                <!-- <td class="serial">{{ forloop.counter }}</td>
+                                <td>{{ order.supplierId }}</td>
+                                <td>{{ order.supplier }}</td>
+                                <td>{{ order.productId }}</td>
+                                <td>{{ order.product }}</td>
+                                <td>{{ order.qty }}</td>
+                                <td>{{ order.date }}</td> -->
+                                
+                            </tr>
+                            {% endfor %}
+                            {% else %}
+                                <tr><td>No Order Data</td></tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div> <!-- /.table-stats -->
+            </div>
+        </div> <!-- /.card -->
+    </div>  <!-- /.col-lg-8 -->
+
+    
+</div>
+{% endblock content %}
